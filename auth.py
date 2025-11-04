@@ -24,6 +24,7 @@ async def login_auvo():                     #"async" -> Pode pausar a função n
         token = data["result"]["accessToken"]
         print(token)
         print(response.status_code)
+        return token, expires_at
 
 async def ensure_token():
     global token, expires_at
@@ -31,5 +32,6 @@ async def ensure_token():
         await login_auvo()
     return token, expires_at
 
+#print(token)
+#print(expires_at)
 asyncio.run(login_auvo())   #Chamando função assincrona 
-
